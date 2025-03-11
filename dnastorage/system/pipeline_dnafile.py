@@ -124,6 +124,8 @@ class ReadDNAFilePipeline(DNAFilePipeline):
         return
     def read(self, n=1):        
         return self.mem_buffer.read(n)
+    def reset(self):
+        self.mem_buffer.seek(0,0)
     def readline(self, n=-1):
         return self.mem_buffer.readline(n)
     def readable(self):

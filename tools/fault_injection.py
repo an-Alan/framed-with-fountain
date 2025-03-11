@@ -4,6 +4,8 @@ Main script for running fault injection analysis on different encoding architect
 import mpi4py
 from mpi4py import MPI
 from dnastorage.fi.fi_env import *
+from dnastorage.lt_codes_python.encode import encode_file
+from dnastorage.lt_codes_python.decode import decode_file
 import dnastorage.fi.dna_processes as dna_process
 from dnastorage.system.pipeline_dnafile import *
 from dnastorage.system.formats import *
@@ -56,7 +58,12 @@ def _monte_kernel(monte_start,monte_end,args,comm=None): #function that will run
     payload_header_data_path = os.path.join(args.out_dir,"payload_pipeline{}.header".format(monte_end)) #binary data output for header of the payload pipeline
     #non-master ranks don't really need to encode
     if is_master(comm):
-        file_to_fault_inject= open(args.file, "rb")
+        
+        fountainless_file_size = os.path.getsize(args.file)
+        fountain_encode_basename = f"{os.path.basename(args.file)}.bin"
+        file_blocks_n = encode_file(args.file, fountain_encode_basename, encoding_params["fountain_redundancy"])
+        file_to_fault_inject= open(fountain_encode_basename, "rb")
+        
         file_to_fault_inject.seek(0,2)
         file_to_inject_size=file_to_fault_inject.tell()
         file_to_fault_inject.seek(0,0)
@@ -133,6 +140,55 @@ def _monte_kernel(monte_start,monte_end,args,comm=None): #function that will run
         else:
             stats.inc("error",0)
         logger.info("Finished decoding erroneous file")
+
+        fountainless_file = open(args.file, "rb")
+        fountainless_file.seek(0,0)
+        total_mismatch_data=0
+        length_fi_data=0
+        index=0
+        with open(f"{fountain_encode_basename}.{sim_number}.bin", "wb") as decoded_fountain_file: 
+            logger.info("starting to put fountain file in")
+            read_dna.reset()
+            while True:
+                x = read_dna.read(1)
+                if len(x) == 0:
+                    break
+                decoded_fountain_file.write(x)
+            logger.info("finished writing fountain file in")
+
+        decoded_fountain_filename = f"{fountain_encode_basename}.{sim_number}.decoded.bin"
+
+        bol = decode_file(f"{fountain_encode_basename}.{sim_number}.bin", decoded_fountain_filename, file_blocks_n, fountainless_file_size)
+        if bol:
+            logger.info("finished decoding")
+            decodedFountain = open(decoded_fountain_filename, "rb")
+            decodedFountain.seek(0,0)
+            fountain_total_mismatch_data=0
+            fountain_length_fi_data=0
+            index=0
+            while True: #make comparision a function to use for before and after fountain
+                #check this while loop
+                fi_data=decodedFountain.read(1)
+                if len(fi_data)==0: break
+                original_data=fountainless_file.read(1)
+                if len(original_data)==0: break
+                fountain_length_fi_data+=1
+                index+=1
+                if fi_data==original_data:
+                    continue
+                else:
+                    fountain_total_mismatch_data+=1
+            stats.inc("total_mismatch_bytes_after_fountain",fountain_total_mismatch_data)
+            stats.inc("file_size_difference_bytes_after_fountain",abs(fountainless_file_size-fountain_length_fi_data))
+            if fountain_total_mismatch_data>0 or fountainless_file_size!=fountain_length_fi_data:
+                stats.inc("error_after_fountain",1)
+            else:
+                stats.inc("error_after_fountain",0)
+            logger.info("Finished decoding erroneous fountain file")
+        else:
+            logger.info("failed_fountain_decoding")
+            stats.inc("fountain_fail", 1)
+            
 
     #merge in results from different ranks
     if comm:
