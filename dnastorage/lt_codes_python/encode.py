@@ -50,7 +50,7 @@ def encode_file(filename,outputname, redundancy, systematic):
     with open(filename, "rb") as file:
 
         logger.info("Redundancy: {}".format(redundancy))
-        logger.info("Systematic: {}".format(core.systematic))
+        logger.info("Systematic: {}".format(systematic))
 
         filesize = os.path.getsize(filename)
         assert filesize > 0
