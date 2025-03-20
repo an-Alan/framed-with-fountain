@@ -25,7 +25,7 @@ def blocks_write(blocks, file, filesize):
     shrinked_data = last_bytes[:filesize % core.PACKET_SIZE]
     file.write(shrinked_data)
 
-def decode_file(filename, outputname, file_blocks_n, file_size):
+def decode_file(filename, outputname, file_blocks_n, file_size, systematic):
 
     # Generating symbols (or drops) from the blocks
     file_symbols = []
@@ -47,7 +47,7 @@ def decode_file(filename, outputname, file_blocks_n, file_size):
 
     # Recovering the blocks from symbols
     print("read back fountain file starting to decode")
-    recovered_blocks, recovered_n = decode(file_symbols, blocks_quantity=file_blocks_n)
+    recovered_blocks, recovered_n = decode(file_symbols, file_blocks_n, systematic)
     
     if core.VERBOSE:
         print(recovered_blocks)

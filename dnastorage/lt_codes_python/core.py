@@ -6,7 +6,7 @@ import numpy as np
 import random
 from random import choices
 
-SYSTEMATIC = True
+
 VERBOSE = False
 # PACKET_SIZE = 65536
 # PACKET_SIZE = 32768
@@ -30,11 +30,11 @@ class Symbol:
         self.degree = degree
         self.data = data
 
-    def log(self, blocks_quantity):
-        neighbors, _ = generate_indexes(self.index, self.degree, blocks_quantity)
+    def log(self, blocks_quantity, systematic):
+        neighbors, _ = generate_indexes(self.index, self.degree, blocks_quantity, systematic)
         print("symbol_{} degree={}\t {}".format(self.index, self.degree, neighbors))
 
-def generate_indexes(symbol_index, degree, blocks_quantity):
+def generate_indexes(symbol_index, degree, blocks_quantity, systematic):
     """Randomly get `degree` indexes, given the symbol index as a seed
 
     Generating with a seed allows saving only the seed (and the amount of degrees) 
@@ -46,7 +46,7 @@ def generate_indexes(symbol_index, degree, blocks_quantity):
 
     To be sure to get the same random indexes, we need to pass 
     """
-    if SYSTEMATIC and symbol_index < blocks_quantity:
+    if systematic and symbol_index < blocks_quantity:
         indexes = [symbol_index]               
         degree = 1     
     else:

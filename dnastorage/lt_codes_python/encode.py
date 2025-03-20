@@ -8,6 +8,9 @@ import numpy as np
 import dnastorage.lt_codes_python.core as core
 from dnastorage.lt_codes_python.encoder import encode
 import random
+import logging
+
+logger = logging.getLogger()
 
 def blocks_read(file, filesize):
     """ Read the given file by blocks of `core.PACKET_SIZE` and use np.frombuffer() improvement.
@@ -42,38 +45,39 @@ def blocks_read(file, filesize):
 
     return blocks
 
-def encode_file(filename,outputname, redundancy):
+def encode_file(filename,outputname, redundancy, systematic):
 
     with open(filename, "rb") as file:
 
-        print("Redundancy: {}".format(redundancy))
-        print("Systematic: {}".format(core.SYSTEMATIC))
+        logger.info("Redundancy: {}".format(redundancy))
+        logger.info("Systematic: {}".format(core.systematic))
 
         filesize = os.path.getsize(filename)
-        print("Filesize: {} bytes".format(filesize))
+        assert filesize > 0
+        logger.info("Filesize: {} bytes".format(filesize))
 
         # Splitting the file in blocks & compute drops
         file_blocks = blocks_read(file, filesize)
         file_blocks_n = len(file_blocks)
         drops_quantity = int(file_blocks_n * redundancy)
 
-        print("Blocks: {}".format(file_blocks_n))
-        print("Drops: {}\n".format(drops_quantity))
+        logger.info("Blocks: {}".format(file_blocks_n))
+        logger.info("Drops: {}\n".format(drops_quantity))
 
         # Generating symbols (or drops) from the blocks
         file_symbols = []
         with open(outputname, 'wb') as output_f:
-            for curr_symbol in encode(file_blocks, drops_quantity=drops_quantity):
+            for curr_symbol in encode(file_blocks, drops_quantity, systematic):
             # if random.random() < 0.1:
             #     curr_symbol.data[9] = ~curr_symbol.data[9]
                 
-            #     print("changed bytes")
+            #     logger.info("changed bytes")
                 # file_symbols.append(curr_symbol)
                 for char in curr_symbol.data:
                     output_f.write(char)
             
-    print(f"file_blocks_n = {file_blocks_n}")
-    print(f"finished encoding, dumped data into {outputname}")
+    logger.info(f"file_blocks_n = {file_blocks_n}")
+    logger.info(f"finished encoding, dumped data into {outputname}")
     return(file_blocks_n)
     
 

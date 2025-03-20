@@ -2,7 +2,7 @@ from dnastorage.lt_codes_python.core import *
 from reedsolo import RSCodec
 from dnastorage.util.stats import *
 
-def recover_graph(symbols, blocks_quantity):
+def recover_graph(symbols, blocks_quantity, systematic):
     """ Get back the same random indexes (or neighbors), thanks to the symbol id as seed.
     For an easy implementation purpose, we register the indexes as property of the Symbols objects.
     """
@@ -37,7 +37,7 @@ def recover_graph(symbols, blocks_quantity):
         index = int(symbol.data[1]) + (int(symbol.data[2]) * 256) + (int(symbol.data[3]) * 256 ** 2) + (int(symbol.data[4]) * 256 ** 3)
 
         symbol.index = index
-        neighbors, deg = generate_indexes(symbol.index, int(symbol.data[0]), blocks_quantity)
+        neighbors, deg = generate_indexes(symbol.index, int(symbol.data[0]), blocks_quantity, systematic)
         symbol.neighbors = {x for x in neighbors}
         symbol.degree = deg
         symbol.data = symbol.data[5:]
@@ -71,7 +71,7 @@ def reduce_neighbors(block_index, blocks, symbols):
                 print("XOR block_{} with symbol_{} :".format(block_index, other_symbol.index), list(other_symbol.neighbors.keys())) 
 
 
-def decode(symbols, blocks_quantity):
+def decode(symbols, blocks_quantity, systematic):
     """ Iterative decoding - Decodes all the passed symbols to build back the data as blocks. 
     The function returns the data at the end of the process.
     
@@ -96,7 +96,7 @@ def decode(symbols, blocks_quantity):
     blocks = [None] * blocks_n
 
     # Recover the degrees and associated neighbors using the seed (the index, cf. encoding).
-    symbols = recover_graph(symbols, blocks_n)
+    symbols = recover_graph(symbols, blocks_n, systematic)
     print("Graph built back. Ready for decoding.", flush=True)
     
     solved_blocks_count = 0

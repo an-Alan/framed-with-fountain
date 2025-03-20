@@ -18,7 +18,7 @@ def get_degrees_from(distribution_name, N, k):
     population = list(range(0, N+1))
     return [1] + choices(population, probabilities, k=k-1)
    
-def encode(blocks, drops_quantity):
+def encode(blocks, drops_quantity, systematic):
     """ Iterative encoding - Encodes new symbols and yield them.
     Encoding one symbol is described as follow:
 
@@ -47,7 +47,7 @@ def encode(blocks, drops_quantity):
     for i in range(drops_quantity):
         
         # Get the random selection, generated precedently (for performance)
-        selection_indexes, deg = generate_indexes(i, random_degrees[i], blocks_n)
+        selection_indexes, deg = generate_indexes(i, random_degrees[i], blocks_n, systematic)
 
         # Xor each selected array within each other gives the drop (or just take one block if there is only one selected)
         drop = blocks[selection_indexes[0]]

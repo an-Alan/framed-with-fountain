@@ -60,9 +60,17 @@ def _monte_kernel(monte_start,monte_end,args,comm=None): #function that will run
     if is_master(comm):
         
         fountainless_file_size = os.path.getsize(args.file)
-        fountain_encode_basename = f"{os.path.basename(args.file)}.bin"
-        file_blocks_n = encode_file(args.file, fountain_encode_basename, encoding_params["fountain_redundancy"])
-        file_to_fault_inject= open(fountain_encode_basename, "rb")
+        fountain_encode_basename = f"{os.path.basename(args.file)}{monte_end}.bin"
+
+        systematic_true = False
+        if encoding_params["systematic"] == 1:
+            systematic_true = True
+        if encoding_params["fountain_redundancy"] != 1:
+            file_blocks_n = encode_file(args.file, fountain_encode_basename, encoding_params["fountain_redundancy"], systematic_true)
+            file_to_fault_inject= open(fountain_encode_basename, "rb")
+            logger.info("fountain encoding finished")
+        else:
+            file_to_fault_inject= open(args.file, "rb")
         
         file_to_fault_inject.seek(0,2)
         file_to_inject_size=file_to_fault_inject.tell()
@@ -141,53 +149,56 @@ def _monte_kernel(monte_start,monte_end,args,comm=None): #function that will run
             stats.inc("error",0)
         logger.info("Finished decoding erroneous file")
 
-        fountainless_file = open(args.file, "rb")
-        fountainless_file.seek(0,0)
-        total_mismatch_data=0
-        length_fi_data=0
-        index=0
-        with open(f"{fountain_encode_basename}.{sim_number}.bin", "wb") as decoded_fountain_file: 
-            logger.info("starting to put fountain file in")
-            read_dna.reset()
-            while True:
-                x = read_dna.read(1)
-                if len(x) == 0:
-                    break
-                decoded_fountain_file.write(x)
-            logger.info("finished writing fountain file in")
+        if encoding_params["fountain_redundancy"] != 1:
 
-        decoded_fountain_filename = f"{fountain_encode_basename}.{sim_number}.decoded.bin"
-
-        bol = decode_file(f"{fountain_encode_basename}.{sim_number}.bin", decoded_fountain_filename, file_blocks_n, fountainless_file_size)
-        if bol:
-            logger.info("finished decoding")
-            decodedFountain = open(decoded_fountain_filename, "rb")
-            decodedFountain.seek(0,0)
-            fountain_total_mismatch_data=0
-            fountain_length_fi_data=0
+            fountainless_file = open(args.file, "rb")
+            fountainless_file.seek(0,0)
+            total_mismatch_data=0
+            length_fi_data=0
             index=0
-            while True: #make comparision a function to use for before and after fountain
-                #check this while loop
-                fi_data=decodedFountain.read(1)
-                if len(fi_data)==0: break
-                original_data=fountainless_file.read(1)
-                if len(original_data)==0: break
-                fountain_length_fi_data+=1
-                index+=1
-                if fi_data==original_data:
-                    continue
+            fountain_to_decode_filename = f"{fountain_encode_basename}.{sim_number}.bin"
+            with open(fountain_to_decode_filename, "wb") as decoded_fountain_file: 
+                logger.info("starting to put fountain file in")
+                read_dna.reset()
+                while True:
+                    x = read_dna.read(1)
+                    if len(x) == 0:
+                        break
+                    decoded_fountain_file.write(x)
+                logger.info("finished writing fountain file in")
+
+            decoded_fountain_filename = f"{fountain_encode_basename}.{sim_number}.decoded.bin"
+
+            bol = decode_file(fountain_to_decode_filename, decoded_fountain_filename, file_blocks_n, fountainless_file_size, systematic_true)
+            if bol:
+                logger.info("finished decoding")
+                decodedFountain = open(decoded_fountain_filename, "rb")
+                decodedFountain.seek(0,0)
+                fountain_total_mismatch_data=0
+                fountain_length_fi_data=0
+                index=0
+                while True: #make comparision a function to use for before and after fountain
+                    #check this while loop
+                    fi_data=decodedFountain.read(1)
+                    if len(fi_data)==0: break
+                    original_data=fountainless_file.read(1)
+                    if len(original_data)==0: break
+                    fountain_length_fi_data+=1
+                    index+=1
+                    if fi_data==original_data:
+                        continue
+                    else:
+                        fountain_total_mismatch_data+=1
+                stats.inc("total_mismatch_bytes_after_fountain",fountain_total_mismatch_data)
+                stats.inc("file_size_difference_bytes_after_fountain",abs(fountainless_file_size-fountain_length_fi_data))
+                if fountain_total_mismatch_data>0 or fountainless_file_size!=fountain_length_fi_data:
+                    stats.inc("error_after_fountain",1)
                 else:
-                    fountain_total_mismatch_data+=1
-            stats.inc("total_mismatch_bytes_after_fountain",fountain_total_mismatch_data)
-            stats.inc("file_size_difference_bytes_after_fountain",abs(fountainless_file_size-fountain_length_fi_data))
-            if fountain_total_mismatch_data>0 or fountainless_file_size!=fountain_length_fi_data:
-                stats.inc("error_after_fountain",1)
+                    stats.inc("error_after_fountain",0)
+                logger.info("Finished decoding erroneous fountain file")
             else:
-                stats.inc("error_after_fountain",0)
-            logger.info("Finished decoding erroneous fountain file")
-        else:
-            logger.info("failed_fountain_decoding")
-            stats.inc("fountain_fail", 1)
+                logger.info("failed_fountain_decoding")
+                stats.inc("fountain_fail", 1)
             
 
     #merge in results from different ranks
