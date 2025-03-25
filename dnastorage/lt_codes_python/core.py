@@ -51,6 +51,7 @@ def generate_indexes(symbol_index, degree, blocks_quantity, systematic):
         degree = 1     
     else:
         random.seed(symbol_index)
+        assert degree > 0 and degree <= blocks_quantity, f"degree: {degree}, block quantity: {blocks_quantity}"
         indexes = random.sample(range(blocks_quantity), degree)
 
     return indexes, degree

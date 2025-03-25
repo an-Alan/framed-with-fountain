@@ -66,7 +66,7 @@ def _monte_kernel(monte_start,monte_end,args,comm=None): #function that will run
         if encoding_params["systematic"] == 1:
             systematic_true = True
         if encoding_params["fountain_redundancy"] != 1:
-            file_blocks_n = encode_file(args.file, fountain_encode_basename, encoding_params["fountain_redundancy"], systematic_true)
+            file_blocks_n = encode_file(args.file, fountain_encode_basename, encoding_params["fountain_redundancy"], systematic_true, encoding_params["packet_size"])
             file_to_fault_inject= open(fountain_encode_basename, "rb")
             logger.info("fountain encoding finished")
         else:
@@ -169,7 +169,7 @@ def _monte_kernel(monte_start,monte_end,args,comm=None): #function that will run
 
             decoded_fountain_filename = f"{fountain_encode_basename}.{sim_number}.decoded.bin"
 
-            bol = decode_file(fountain_to_decode_filename, decoded_fountain_filename, file_blocks_n, fountainless_file_size, systematic_true)
+            bol = decode_file(fountain_to_decode_filename, decoded_fountain_filename, file_blocks_n, fountainless_file_size, systematic_true, encoding_params["packet_size"])
             if bol:
                 logger.info("finished decoding")
                 decodedFountain = open(decoded_fountain_filename, "rb")

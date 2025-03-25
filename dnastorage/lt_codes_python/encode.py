@@ -12,7 +12,7 @@ import logging
 
 logger = logging.getLogger()
 
-def blocks_read(file, filesize):
+def blocks_read(file, filesize, packet_size):
     """ Read the given file by blocks of `core.PACKET_SIZE` and use np.frombuffer() improvement.
 
     Byt default, we store each octet into a np.uint8 array space, but it is also possible
@@ -24,20 +24,20 @@ def blocks_read(file, filesize):
     * np.frombuffer(b'\x01\x02', dtype=np.uint16) => array([513], dtype=uint16)
     """
 
-    blocks_n = math.ceil(filesize / core.PACKET_SIZE)
+    blocks_n = math.ceil(filesize / packet_size)
     blocks = []
 
     # Read data by blocks of size core.PACKET_SIZE
     for i in range(blocks_n):
             
-        data = bytearray(file.read(core.PACKET_SIZE))
+        data = bytearray(file.read(packet_size))
 
         if not data:
             raise "stop"
 
         # The last read bytes needs a right padding to be XORed in the future
-        if len(data) != core.PACKET_SIZE:
-            data = data + bytearray(core.PACKET_SIZE - len(data))
+        if len(data) != packet_size:
+            data = data + bytearray(packet_size - len(data))
             assert i == blocks_n-1, "Packet #{} has a not handled size of {} bytes".format(i, len(blocks[i]))
 
         # Paquets are condensed in the right array type
@@ -45,7 +45,7 @@ def blocks_read(file, filesize):
 
     return blocks
 
-def encode_file(filename,outputname, redundancy, systematic):
+def encode_file(filename,outputname, redundancy, systematic, packet_size):
 
     with open(filename, "rb") as file:
 
@@ -67,7 +67,7 @@ def encode_file(filename,outputname, redundancy, systematic):
         # Generating symbols (or drops) from the blocks
         file_symbols = []
         with open(outputname, 'wb') as output_f:
-            for curr_symbol in encode(file_blocks, drops_quantity, systematic):
+            for curr_symbol in encode(file_blocks, drops_quantity, systematic,packet_size):
             # if random.random() < 0.1:
             #     curr_symbol.data[9] = ~curr_symbol.data[9]
                 

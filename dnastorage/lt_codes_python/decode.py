@@ -11,7 +11,7 @@ import random
 
 
 
-def blocks_write(blocks, file, filesize):
+def blocks_write(blocks, file, filesize, packet_size):
     """ Write the given blocks into a file
     """
 
@@ -22,22 +22,22 @@ def blocks_write(blocks, file, filesize):
 
     # Convert back the bytearray to bytes and shrink back 
     last_bytes = bytes(blocks[-1])
-    shrinked_data = last_bytes[:filesize % core.PACKET_SIZE]
+    shrinked_data = last_bytes[:filesize % packet_size]
     file.write(shrinked_data)
 
-def decode_file(filename, outputname, file_blocks_n, file_size, systematic):
+def decode_file(filename, outputname, file_blocks_n, file_size, systematic, packet_size):
 
     # Generating symbols (or drops) from the blocks
     file_symbols = []
     with open(filename, 'rb') as output_f:
         print("ltdecode starting to read in fountain file")
         print(f"file size is {os.path.getsize(filename)}")
-        data = output_f.read(39)
+        data = output_f.read(packet_size + 7)
         while len(data) != 0:
             print(len(data))
-            if len(data) == 39:
+            if len(data) == packet_size + 7:
                 file_symbols.append(core.Symbol(index=0, degree=0, data=data))
-            data = output_f.read(39)
+            data = output_f.read(packet_size + 7)
 
     
         
@@ -62,7 +62,7 @@ def decode_file(filename, outputname, file_blocks_n, file_size, systematic):
 
     # Write down the recovered blocks in a copy 
     with open(outputname, "wb") as file_copy:
-        blocks_write(recovered_blocks, file_copy, file_size)
+        blocks_write(recovered_blocks, file_copy, file_size, packet_size)
 
     print("Wrote {} bytes in {}".format(os.path.getsize(outputname), outputname))
     return True

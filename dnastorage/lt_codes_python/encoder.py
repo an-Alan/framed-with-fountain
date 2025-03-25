@@ -18,7 +18,7 @@ def get_degrees_from(distribution_name, N, k):
     population = list(range(0, N+1))
     return [1] + choices(population, probabilities, k=k-1)
    
-def encode(blocks, drops_quantity, systematic):
+def encode(blocks, drops_quantity, systematic, packet_size):
     """ Iterative encoding - Encodes new symbols and yield them.
     Encoding one symbol is described as follow:
 
@@ -80,4 +80,4 @@ def encode(blocks, drops_quantity, systematic):
 
         yield symbol
 
-    print("\n----- Correctly dropped {} symbols (packet size={})".format(drops_quantity, PACKET_SIZE))
+    print("\n----- Correctly dropped {} symbols (packet size={})".format(drops_quantity, packet_size))
