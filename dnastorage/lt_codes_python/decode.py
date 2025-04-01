@@ -25,19 +25,19 @@ def blocks_write(blocks, file, filesize, packet_size):
     shrinked_data = last_bytes[:filesize % packet_size]
     file.write(shrinked_data)
 
-def decode_file(filename, outputname, file_blocks_n, file_size, systematic, packet_size):
+def decode_file(filename, outputname, file_blocks_n, file_size, systematic, packet_size, rs_size_fountain):
 
     # Generating symbols (or drops) from the blocks
     file_symbols = []
     with open(filename, 'rb') as output_f:
         print("ltdecode starting to read in fountain file")
         print(f"file size is {os.path.getsize(filename)}")
-        data = output_f.read(packet_size + 7)
+        data = output_f.read(packet_size + rs_size_fountain + 5)
         while len(data) != 0:
             print(len(data))
-            if len(data) == packet_size + 7:
+            if len(data) == packet_size + rs_size_fountain + 5:
                 file_symbols.append(core.Symbol(index=0, degree=0, data=data))
-            data = output_f.read(packet_size + 7)
+            data = output_f.read(packet_size + rs_size_fountain + 5)
 
     
         
@@ -47,7 +47,7 @@ def decode_file(filename, outputname, file_blocks_n, file_size, systematic, pack
 
     # Recovering the blocks from symbols
     print("read back fountain file starting to decode")
-    recovered_blocks, recovered_n = decode(file_symbols, file_blocks_n, systematic)
+    recovered_blocks, recovered_n = decode(file_symbols, file_blocks_n, systematic,packet_size, rs_size_fountain)
     
     if core.VERBOSE:
         print(recovered_blocks)
@@ -56,6 +56,7 @@ def decode_file(filename, outputname, file_blocks_n, file_size, systematic, pack
 
     if recovered_n != file_blocks_n:
         print("All blocks are not recovered, we cannot proceed the file writing")
+        #fix me write recovered blocks to allow calculation of mismatched bytes
         return False
 
    

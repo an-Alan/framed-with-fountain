@@ -14,7 +14,7 @@ VERBOSE = False
 # PACKET_SIZE = 4096
 # PACKET_SIZE = 1024
 # PACKET_SIZE = 512
-PACKET_SIZE = 32
+# PACKET_SIZE = 32
 ROBUST_FAILURE_PROBABILITY = 0.01
 # NUMPY_TYPE = np.uint64
 # NUMPY_TYPE = np.uint32
@@ -56,7 +56,7 @@ def generate_indexes(symbol_index, degree, blocks_quantity, systematic):
 
     return indexes, degree
 
-def log(process, iteration, total, start_time):
+def log(process, iteration, total, start_time, packet_size):
     """Log the processing in a gentle way, each seconds"""
     global log_actual_time
     
@@ -67,7 +67,7 @@ def log(process, iteration, total, start_time):
         
         log_actual_time = time.time()
         elapsed = log_actual_time - start_time + EPSILON
-        speed = (iteration + 1) / elapsed * PACKET_SIZE / (1024 * 1024)
+        speed = (iteration + 1) / elapsed * packet_size / (1024 * 1024)
 
         print("-- {}: {}/{} - {:.2%} symbols at {:.2f} MB/s       ~{:.2f}s".format(
             process, iteration + 1, total, (iteration + 1) / total, speed, elapsed), end="\r", flush=True)

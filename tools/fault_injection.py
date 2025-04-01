@@ -66,7 +66,7 @@ def _monte_kernel(monte_start,monte_end,args,comm=None): #function that will run
         if encoding_params["systematic"] == 1:
             systematic_true = True
         if encoding_params["fountain_redundancy"] != 1:
-            file_blocks_n = encode_file(args.file, fountain_encode_basename, encoding_params["fountain_redundancy"], systematic_true, encoding_params["packet_size"])
+            file_blocks_n = encode_file(args.file, fountain_encode_basename, encoding_params["fountain_redundancy"], systematic_true, encoding_params["packet_size"], encoding_params["rs_size_fountain"])
             file_to_fault_inject= open(fountain_encode_basename, "rb")
             logger.info("fountain encoding finished")
         else:
@@ -169,37 +169,37 @@ def _monte_kernel(monte_start,monte_end,args,comm=None): #function that will run
 
             decoded_fountain_filename = f"{fountain_encode_basename}.{sim_number}.decoded.bin"
 
-            bol = decode_file(fountain_to_decode_filename, decoded_fountain_filename, file_blocks_n, fountainless_file_size, systematic_true, encoding_params["packet_size"])
-            if bol:
-                logger.info("finished decoding")
-                decodedFountain = open(decoded_fountain_filename, "rb")
-                decodedFountain.seek(0,0)
-                fountain_total_mismatch_data=0
-                fountain_length_fi_data=0
-                index=0
-                while True: #make comparision a function to use for before and after fountain
-                    #check this while loop
-                    fi_data=decodedFountain.read(1)
-                    if len(fi_data)==0: break
-                    original_data=fountainless_file.read(1)
-                    if len(original_data)==0: break
-                    fountain_length_fi_data+=1
-                    index+=1
-                    if fi_data==original_data:
-                        continue
-                    else:
-                        fountain_total_mismatch_data+=1
-                stats.inc("total_mismatch_bytes_after_fountain",fountain_total_mismatch_data)
-                stats.inc("file_size_difference_bytes_after_fountain",abs(fountainless_file_size-fountain_length_fi_data))
-                if fountain_total_mismatch_data>0 or fountainless_file_size!=fountain_length_fi_data:
-                    stats.inc("error_after_fountain",1)
+            bol = decode_file(fountain_to_decode_filename, decoded_fountain_filename, file_blocks_n, fountainless_file_size, systematic_true, encoding_params["packet_size"], encoding_params["rs_size_fountain"])
+        
+            logger.info("finished decoding")
+            decodedFountain = open(decoded_fountain_filename, "rb")
+            decodedFountain.seek(0,0)
+            fountain_total_mismatch_data=0
+            fountain_length_fi_data=0
+            index=0
+            while True: #make comparision a function to use for before and after fountain
+                #check this while loop
+                fi_data=decodedFountain.read(1)
+                if len(fi_data)==0: break
+                original_data=fountainless_file.read(1)
+                if len(original_data)==0: break
+                fountain_length_fi_data+=1
+                index+=1
+                if fi_data==original_data:
+                    continue
                 else:
-                    stats.inc("error_after_fountain",0)
-                logger.info("Finished decoding erroneous fountain file")
+                    fountain_total_mismatch_data+=1
+            stats.inc("total_mismatch_bytes_after_fountain",fountain_total_mismatch_data)
+            stats.inc("file_size_difference_bytes_after_fountain",abs(fountainless_file_size-fountain_length_fi_data))
+            if fountain_total_mismatch_data>0 or fountainless_file_size!=fountain_length_fi_data:
+                stats.inc("error_after_fountain",1)
             else:
-                logger.info("failed_fountain_decoding")
-                stats.inc("fountain_fail", 1)
-            
+                stats.inc("error_after_fountain",0)
+            logger.info("Finished decoding erroneous fountain file")
+        else:
+            logger.info("failed_fountain_decoding")
+            stats.inc("fountain_fail", 1)
+        
 
     #merge in results from different ranks
     if comm:

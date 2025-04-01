@@ -15,10 +15,10 @@ def get_degrees_from(distribution_name, N, k):
     else:
         probabilities = None
     
-    population = list(range(0, N+1))
+    population = list(range(1, N+1))
     return [1] + choices(population, probabilities, k=k-1)
    
-def encode(blocks, drops_quantity, systematic, packet_size):
+def encode(blocks, drops_quantity, systematic, packet_size, rs_size_fountain):
     """ Iterative encoding - Encodes new symbols and yield them.
     Encoding one symbol is described as follow:
 
@@ -65,10 +65,10 @@ def encode(blocks, drops_quantity, systematic, packet_size):
             assert counter < 4
 
         drop = np.insert(drop, 0, index)
-        assert deg <= 255
+        assert deg <= 255 and deg > 0, f"degree: {deg}"
         drop = np.insert(drop, 0, deg)
 
-        rs_obj = RSCodec(2)
+        rs_obj = RSCodec(rs_size_fountain)
         drop = np.frombuffer(rs_obj.encode(drop), dtype=NUMPY_TYPE)
         
         symbol = Symbol(index=i, degree=deg, data=drop)
@@ -76,7 +76,7 @@ def encode(blocks, drops_quantity, systematic, packet_size):
         if VERBOSE:
             symbol.log(blocks_n)
 
-        log("Encoding", i, drops_quantity, start_time)
+        log("Encoding", i, drops_quantity, start_time, packet_size)
 
         yield symbol
 

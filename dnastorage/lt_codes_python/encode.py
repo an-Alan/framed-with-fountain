@@ -45,7 +45,7 @@ def blocks_read(file, filesize, packet_size):
 
     return blocks
 
-def encode_file(filename,outputname, redundancy, systematic, packet_size):
+def encode_file(filename,outputname, redundancy, systematic, packet_size, rs_size_fountain):
 
     with open(filename, "rb") as file:
 
@@ -57,7 +57,7 @@ def encode_file(filename,outputname, redundancy, systematic, packet_size):
         logger.info("Filesize: {} bytes".format(filesize))
 
         # Splitting the file in blocks & compute drops
-        file_blocks = blocks_read(file, filesize)
+        file_blocks = blocks_read(file, filesize, packet_size)
         file_blocks_n = len(file_blocks)
         drops_quantity = int(file_blocks_n * redundancy)
 
@@ -67,7 +67,7 @@ def encode_file(filename,outputname, redundancy, systematic, packet_size):
         # Generating symbols (or drops) from the blocks
         file_symbols = []
         with open(outputname, 'wb') as output_f:
-            for curr_symbol in encode(file_blocks, drops_quantity, systematic,packet_size):
+            for curr_symbol in encode(file_blocks, drops_quantity, systematic,packet_size, rs_size_fountain):
             # if random.random() < 0.1:
             #     curr_symbol.data[9] = ~curr_symbol.data[9]
                 
