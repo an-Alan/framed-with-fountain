@@ -54,10 +54,10 @@ def decode_file(filename, outputname, file_blocks_n, file_size, systematic, pack
         print("------ Blocks :  \t-----------")
         # print(file_blocks)
 
-    if recovered_n != file_blocks_n:
-        print("All blocks are not recovered, we cannot proceed the file writing")
-        #fix me write recovered blocks to allow calculation of mismatched bytes
-        return False
+    # if recovered_n != file_blocks_n:
+    #     print("All blocks are not recovered, we cannot proceed the file writing")
+    #     #fix me write recovered blocks to allow calculation of mismatched bytes
+    #     return False
 
    
 

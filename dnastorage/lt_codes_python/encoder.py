@@ -1,6 +1,9 @@
 from dnastorage.lt_codes_python.core import *
 from dnastorage.lt_codes_python.distributions import *
 from reedsolo import RSCodec
+import logging
+
+logger = logging.getLogger()
 
 def get_degrees_from(distribution_name, N, k):
     """ Returns the random degrees from a given distribution of probabilities.
@@ -15,8 +18,11 @@ def get_degrees_from(distribution_name, N, k):
     else:
         probabilities = None
     
-    population = list(range(1, N+1))
-    return [1] + choices(population, probabilities, k=k-1)
+    population = list(range(0, N+1))
+    degrees = choices(population, probabilities, k=k-1)
+    assert 0 not in degrees, "0 in degrees"
+    return [1] + degrees
+
    
 def encode(blocks, drops_quantity, systematic, packet_size, rs_size_fountain):
     """ Iterative encoding - Encodes new symbols and yield them.
@@ -57,6 +63,7 @@ def encode(blocks, drops_quantity, systematic, packet_size, rs_size_fountain):
             # print(drop)
         # Create symbol, then log the process
         index = [0, 0, 0, 0]
+        indexbefore = i
         counter = 0
         while i > 0:
             index[counter] = i%256
@@ -68,9 +75,10 @@ def encode(blocks, drops_quantity, systematic, packet_size, rs_size_fountain):
         assert deg <= 255 and deg > 0, f"degree: {deg}"
         drop = np.insert(drop, 0, deg)
 
-        rs_obj = RSCodec(rs_size_fountain)
-        drop = np.frombuffer(rs_obj.encode(drop), dtype=NUMPY_TYPE)
-        
+        #rs_obj = RSCodec(rs_size_fountain)
+        #drop = np.frombuffer(rs_obj.encode(drop), dtype=NUMPY_TYPE)
+        checksumd = checksum(drop)
+        drop = np.insert(drop, 0, checksumd)
         symbol = Symbol(index=i, degree=deg, data=drop)
         
         if VERBOSE:

@@ -5,7 +5,9 @@ import time
 import numpy as np
 import random
 from random import choices
+import logging
 
+logger = logging.getLogger()
 
 VERBOSE = False
 # PACKET_SIZE = 65536
@@ -55,6 +57,13 @@ def generate_indexes(symbol_index, degree, blocks_quantity, systematic):
         indexes = random.sample(range(blocks_quantity), degree)
 
     return indexes, degree
+
+def checksum(chunk):
+   checksum_num = chunk[0]
+   for byte in chunk[1:]:
+      checksum_num = np.bitwise_xor(checksum_num, byte)
+   return checksum_num
+
 
 def log(process, iteration, total, start_time, packet_size):
     """Log the processing in a gentle way, each seconds"""

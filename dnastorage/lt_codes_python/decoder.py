@@ -1,50 +1,51 @@
 from dnastorage.lt_codes_python.core import *
 from reedsolo import RSCodec
 from dnastorage.util.stats import *
+import logging
+
+logger = logging.getLogger()
+
 
 def recover_graph(symbols, blocks_quantity, systematic, rs_size_fountain):
     """ Get back the same random indexes (or neighbors), thanks to the symbol id as seed.
     For an easy implementation purpose, we register the indexes as property of the Symbols objects.
     """
 
-    for symbol in symbols:
+    for i, symbol in enumerate(symbols):
         stats.inc("fountain_drops", 1)
-        rs_obj = RSCodec(rs_size_fountain)
-        data = symbol.data[:]
-        try:
-            symbol.data = np.frombuffer(rs_obj.decode(symbol.data)[0], dtype=NUMPY_TYPE)
-                    
-        except:
-            print("rs failed")
-            stats.inc("rs_fountain_fail", 1)
-            symbol.data = None #could not correct the code
-            continue
-
-            #we will encode the data again to evaluate the correctness of the decoding
-    
-        data_again = list(rs_obj.encode(symbol.data)) #cast to list to convert byte array to int
-
-        if np.count_nonzero(data != list(data_again)) > 100: #measuring hamming distance between raw input and expected raw input
-                #too many errors to correct in decoding                    
-            symbol.data = None
-            print("rs failed")
-            stats.inc("rs_fountain_fail", 1)
-            continue
+        #rs_obj = RSCodec(rs_size_fountain)
+        checksum_len = 1
+        checksum_pos = 0
         
-        if symbol.data is None:
+        data = symbol.data[checksum_len:]
+        
+        if checksum(data) != symbol.data[checksum_pos]:
+            logger.info(f"checksum failed for droplet checksumfromfile: {symbol.data[checksum_pos]} checksum: {checksum(data)} data: {symbol.data}")
+            stats.inc("checksum_fountain_fail", 1)
+            symbol.data = None
             continue
 
-        index = int(symbol.data[1]) + (int(symbol.data[2]) * 256) + (int(symbol.data[3]) * 256 ** 2) + (int(symbol.data[4]) * 256 ** 3)
+        else:
+            logger.info(f"checksum passed for droplet")
 
-        degree = int(symbol.data[0])
+        symbol.data = np.frombuffer(symbol.data, dtype=NUMPY_TYPE)
+
+        symbol.data = symbol.data[checksum_len:]
+
+        index = 0
+        pos_degree = 0
+        len_degree = 1
+        pos_index = len_degree + pos_degree
+        len_index = 4
+        for i in range(len_index):
+            index += int(symbol.data[i + pos_index]) * 256 ** i
+
+        symbol.degree = int(symbol.data[pos_degree])
         symbol.index = index
-        neighbors, deg = generate_indexes(symbol.index, degree, blocks_quantity, systematic)
+        logger.info(f"generating indexes for index:{symbol.index}  degree: {symbol.degree} i = {i}")
+        neighbors, deg = generate_indexes(symbol.index, symbol.degree, blocks_quantity, systematic)
         symbol.neighbors = {x for x in neighbors}
-        symbol.degree = deg
-        symbol.data = symbol.data[5:]
-        # symbol.rs = symbol.data[-2:]
-
-
+        symbol.data = symbol.data[len_degree + len_index:]
 
         if VERBOSE:
             symbol.log(blocks_quantity)
@@ -63,6 +64,8 @@ def reduce_neighbors(block_index, blocks, symbols):
         if other_symbol.degree > 1 and other_symbol.data is not None and block_index in other_symbol.neighbors:
         
             # XOR the data and remove the index from the neighbors
+            logger.info(f" index type: {type(blocks[block_index])} other data type: {type(other_symbol.data)}")
+            logger.info(f"other_symbol data {other_symbol.data}")
             other_symbol.data = np.bitwise_xor(blocks[block_index], other_symbol.data)
             other_symbol.neighbors.remove(block_index)
 
@@ -112,6 +115,7 @@ def decode(symbols, blocks_quantity, systematic,packet_size, rs_size_fountain):
         for i, symbol in enumerate(symbols):
 
             if symbol.data is None:
+                logger.info(f"skipping droplet {i}")
                 symbols.pop(i)
                 continue
 
