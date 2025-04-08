@@ -2,7 +2,7 @@
     "file":"$FRAMED_IMAGE_FILES/muscle.jpg",
     "arch": "ReedSolomon_Base4_Pipeline",
     "header_version":"0.5",
-    "simulation_runs":1024,
+    "simulation_runs":8,
     "store_header":0,
     "encoder_params":{
 	"primer3": "", 
@@ -11,12 +11,14 @@
 	"index_bytes":4,
 	"using_DNA_consolidator":"ideal",
 	"blockSizeInBytes": 2780,
-	"outerECCStrands":["value_list",8,16,32, 64, 128],
+	"outerECCStrands":["value_list",8],
 	"dna_length": 250, 
 	"title": "payload", 
 	"fi": true,
-	"fountain_redundancy": 1,
-	"systematic": 1
+	"fountain_redundancy": ["value_list",1.25],
+	"systematic": ["value_list", 1,0],
+	"packet_size": ["value_list", 32],
+	"rs_size_fountain": ["value_list", 1]
     },
     "header_params":{
 	"primer3":"",
@@ -31,7 +33,7 @@
 	"hedges_guesses":0
     },
     "fault_params":{
-	"fault_rate":["value_list",0.01,0.025, 0.05, 0.1, 0.06, 0.055,0.075]
+	"fault_rate":["value_list", 0.05]
     },
     "distribution_params":{
 	"mean":["value_list",1],
