@@ -59,8 +59,8 @@ def generate_indexes(symbol_index, degree, blocks_quantity, systematic):
     return indexes, degree
 
 def checksum(chunk):
-   checksum_num = chunk[0]
-   for byte in chunk[1:]:
+   checksum_num = NUMPY_TYPE(0xA5)
+   for byte in chunk:
       checksum_num = np.bitwise_xor(checksum_num, byte)
    return checksum_num
 

@@ -1,6 +1,10 @@
 #!/bin/tcsh
 
-python $DNASTORAGE_LSF/generate_fi_jobs.py --params $FRAMED_CONFIGS/small/base4_RS_ideal_cluster_iid_sys.json --cores 8 --core_depth 1 --dump_dir $PWD  --queue short --time 1 --experiment_prefix framed_small_rs_fountain_test61_sys_and_nonsys --conda_env_path $FRAMED_CONDA --job_name "rs_cluster_fi"
+
+python $DNASTORAGE_LSF/generate_fi_jobs.py --params $FRAMED_CONFIGS/small/base4_RS_ideal_cluster_iid_test.json --cores 8 --core_depth 1 --dump_dir $PWD  --queue short --time 1 --experiment_prefix framed_small_rs_fountain_testing_apr_10_7 --conda_env_path $FRAMED_CONDA --job_name "rs_cluster_fi"
+
+
+# python $DNASTORAGE_LSF/generate_fi_jobs.py --params $FRAMED_CONFIGS/small/base4_RS_ideal_cluster_iid_sys.json --cores 128 --core_depth 1 --dump_dir $PWD  --queue short --time 1 --experiment_prefix framed_small_rs_fountain_test65_sys_and_nonsys --conda_env_path $FRAMED_CONDA --job_name "rs_cluster_fi"
 # python $DNASTORAGE_LSF/generate_fi_jobs.py --params $FRAMED_CONFIGS/small/base4_RS_ideal_cluster_iid_nonsys.json --cores 128 --core_depth 1 --dump_dir $PWD  --queue standard --time 24 --experiment_prefix framed_small_rs_fountain_test11_nonsys --conda_env_path $FRAMED_CONDA --job_name "rs_cluster_fi"
 
 # python $DNASTORAGE_LSF/generate_fi_jobs.py --params $FRAMED_CONFIGS/small/base4_RS_ideal_cluster_iid.json --cores 128 --core_depth 1 --dump_dir $PWD  --queue standard --time 24 --experiment_prefix framed_small_rs_nofountain_test7 --conda_env_path $FRAMED_CONDA --job_name "rs_cluster_fi"

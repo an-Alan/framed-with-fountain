@@ -28,7 +28,14 @@ def recover_graph(symbols, blocks_quantity, systematic, rs_size_fountain):
         else:
             logger.info(f"checksum passed for droplet")
 
+        dataBefore = symbol.data[:4]
+
         symbol.data = np.frombuffer(symbol.data, dtype=NUMPY_TYPE)
+
+        dataAfter = symbol.data[:4]
+
+        logger.info(f"for droplet {i} sample before {dataBefore}  sample after {dataAfter}")
+
 
         symbol.data = symbol.data[checksum_len:]
 
@@ -64,8 +71,6 @@ def reduce_neighbors(block_index, blocks, symbols):
         if other_symbol.degree > 1 and other_symbol.data is not None and block_index in other_symbol.neighbors:
         
             # XOR the data and remove the index from the neighbors
-            logger.info(f" index type: {type(blocks[block_index])} other data type: {type(other_symbol.data)}")
-            logger.info(f"other_symbol data {other_symbol.data}")
             other_symbol.data = np.bitwise_xor(blocks[block_index], other_symbol.data)
             other_symbol.neighbors.remove(block_index)
 
@@ -147,7 +152,7 @@ def decode(symbols, blocks_quantity, systematic,packet_size, rs_size_fountain):
     
     for i in range(len(blocks)):
         if blocks[i] is None:
-            blocks[i] = [0] * 32
+            blocks[i] = np.zeros(packet_size, dtype=NUMPY_TYPE)
 
 
 
