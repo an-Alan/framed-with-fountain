@@ -1,0 +1,58 @@
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@c008n01>
+Subject: Job 918230: <rs_cluster_fi> in cluster <Hazel> Exited
+
+Job <rs_cluster_fi> was submitted from host <c020n03> by user <atan2> in cluster <Hazel> at Sat Apr 12 07:50:22 2025
+Job was executed on host(s) <1*c008n01>, in queue <standard>, as user <atan2> in cluster <Hazel> at Sat Apr 12 07:54:22 2025
+                            <12*c011n04>
+                            <24*c001n04>
+                            <25*c001n01>
+                            <25*c002n01>
+                            <25*c001n03>
+                            <17*c002n03>
+</home/atan2> was used as the home directory.
+</gpfs_backup/tuck_data/atan2/framed-with-fountain/framed_small_rs_fountain_test_apr_12_2___muscle___fixed_rate___bernoulli/ReedSolomon_Base4_Pipeline/mean=1___n_success=10___/fault_rate=0.03___/encoder___10e125f5> was used as the working directory.
+Started at Sat Apr 12 07:54:22 2025
+Terminated at Sat Apr 12 07:54:26 2025
+Results reported at Sat Apr 12 07:54:26 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/tcsh
+#BSUB -n 129
+#BSUB -W 24:00
+#BSUB -q standard
+#BSUB -J rs_cluster_fi
+#BSUB -o lsfjob.stdout.%J
+#BSUB -e lsfjob.stderr.%J
+conda activate /usr/local/usrapps/tuck/atan2/conda/envs/dnastorage
+mpirun python /gpfs_backup/tuck_data/atan2/framed-with-fountain/tools/fault_injection.py --enc_params "/gpfs_backup/tuck_data/atan2/framed-with-fountain/framed_small_rs_fountain_test_apr_12_2___muscle___fixed_rate___bernoulli/ReedSolomon_Base4_Pipeline/mean=1___n_success=10___/fault_rate=0.03___/encoder___10e125f5/encoder_params.json"  --header_params "/gpfs_backup/tuck_data/atan2/framed-with-fountain/framed_small_rs_fountain_test_apr_12_2___muscle___fixed_rate___bernoulli/ReedSolomon_Base4_Pipeline/mean=1___n_success=10___/fault_rate=0.03___/encoder___10e125f5/header_params.json"  --fi_env_params "/gpfs_backup/tuck_data/atan2/framed-with-fountain/framed_small_rs_fountain_test_apr_12_2___muscle___fixed_rate___bernoulli/ReedSolomon_Base4_Pipeline/mean=1___n_success=10___/fault_rate=0.03___/encoder___10e125f5/fi_env_params.json"  --distribution_params "/gpfs_backup/tuck_data/atan2/framed-with-fountain/framed_small_rs_fountain_test_apr_12_2___muscle___fixed_rate___bernoulli/ReedSolomon_Base4_Pipeline/mean=1___n_success=10___/fault_rate=0.03___/encoder___10e125f5/distribution_params.json"  --fault_params "/gpfs_backup/tuck_data/atan2/framed-with-fountain/framed_small_rs_fountain_test_apr_12_2___muscle___fixed_rate___bernoulli/ReedSolomon_Base4_Pipeline/mean=1___n_success=10___/fault_rate=0.03___/encoder___10e125f5/fault_params.json"  --out_dir "/gpfs_backup/tuck_data/atan2/framed-with-fountain/framed_small_rs_fountain_test_apr_12_2___muscle___fixed_rate___bernoulli/ReedSolomon_Base4_Pipeline/mean=1___n_success=10___/fault_rate=0.03___/encoder___10e125f5"  --cores 128  --dna_process "/gpfs_backup/tuck_data/atan2/framed-with-fountain/framed_small_rs_fountain_test_apr_12_2___muscle___fixed_rate___bernoulli/ReedSolomon_Base4_Pipeline/mean=1___n_success=10___/fault_rate=0.03___/encoder___10e125f5/dna_process.json" --file $FRAMED_IMAGE_FILES/muscle.jpg  --arch ReedSolomon_Base4_Pipeline  --header_version 0.5  --simulation_runs 128  --store_header 0 
+
+------------------------------------------------------------
+
+Exited with exit code 15.
+
+Resource usage summary:
+
+    CPU time :                                   0.74 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              1
+    Max Threads :                                2
+    Run time :                                   4 sec.
+    Turnaround time :                            244 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <lsfjob.stderr.918230> for stderr output of this job.
+

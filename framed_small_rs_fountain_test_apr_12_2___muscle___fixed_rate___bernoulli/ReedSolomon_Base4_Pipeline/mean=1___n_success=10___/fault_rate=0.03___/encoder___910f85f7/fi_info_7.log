@@ -1,0 +1,482 @@
+2025-04-12 08:24:42,184 - root - INFO - SEED 139831326 for RANK 7
+2025-04-12 08:24:42,275 - root - INFO - Processor name c004n01
+2025-04-12 08:24:42,277 - root - INFO - PID of Rank 847188
+2025-04-12 08:26:07,088 - root - INFO - Rank 7 Beginning to run monte task
+2025-04-12 08:26:07,094 - root - INFO - Monte Carlo Sim: Start 121 END 122
+2025-04-12 08:26:07,125 - root - INFO - Redundancy: 1.75
+2025-04-12 08:26:07,133 - root - INFO - Systematic: False
+2025-04-12 08:26:07,141 - root - INFO - Filesize: 2780 bytes
+2025-04-12 08:26:07,149 - root - INFO - Blocks: 87
+2025-04-12 08:26:07,158 - root - INFO - Drops: 152
+
+2025-04-12 08:26:07,197 - root - INFO - file_blocks_n = 87
+2025-04-12 08:26:07,202 - root - INFO - finished encoding, dumped data into muscle.jpg122.bin
+2025-04-12 08:26:07,208 - root - INFO - fountain encoding finished
+2025-04-12 08:26:07,816 - dna.storage.system.dnafile - INFO - Right before encoding the header block
+2025-04-12 08:26:07,968 - dnastorage.fi.readdist - INFO - dist_indexes set()
+2025-04-12 08:26:07,970 - root - INFO - Monte Carlo Sim: 121
+2025-04-12 08:26:08,143 - dnastorage.system.header_class - INFO - Header length 0 expected length 97
+2025-04-12 08:26:08,146 - dna.storage.system.dnafile - CRITICAL - store_header was false, trying file right away
+2025-04-12 08:26:08,148 - dna.storage.system.dnafile - INFO - using binary file for payload header instead of DNA
+2025-04-12 08:26:08,150 - dnastorage.system.header_class - INFO - Header length 97 expected length 97
+2025-04-12 08:27:48,677 - root - INFO - Finished decoding erroneous file
+2025-04-12 08:27:48,681 - root - INFO - starting to put fountain file in
+2025-04-12 08:27:48,684 - root - INFO - finished writing fountain file in
+2025-04-12 08:27:48,687 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,689 - root - INFO - for droplet 0 sample before b'}\x01\x00\x00'  sample after [125   1   0   0]
+2025-04-12 08:27:48,691 - root - INFO - generating indexes for index:0  degree: 1 i = 3
+2025-04-12 08:27:48,694 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,696 - root - INFO - for droplet 1 sample before b'#\x02\x01\x00'  sample after [35  2  1  0]
+2025-04-12 08:27:48,698 - root - INFO - generating indexes for index:1  degree: 2 i = 3
+2025-04-12 08:27:48,700 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,702 - root - INFO - for droplet 2 sample before b'm\x1b\x02\x00'  sample after [109  27   2   0]
+2025-04-12 08:27:48,704 - root - INFO - generating indexes for index:2  degree: 27 i = 3
+2025-04-12 08:27:48,707 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,709 - root - INFO - for droplet 3 sample before b'\x9f\x02\x03\x00'  sample after [159   2   3   0]
+2025-04-12 08:27:48,711 - root - INFO - generating indexes for index:3  degree: 2 i = 3
+2025-04-12 08:27:48,713 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,715 - root - INFO - for droplet 4 sample before b'\xfe\x03\x04\x00'  sample after [254   3   4   0]
+2025-04-12 08:27:48,717 - root - INFO - generating indexes for index:4  degree: 3 i = 3
+2025-04-12 08:27:48,719 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,722 - root - INFO - for droplet 5 sample before b'\xf2\x04\x05\x00'  sample after [242   4   5   0]
+2025-04-12 08:27:48,724 - root - INFO - generating indexes for index:5  degree: 4 i = 3
+2025-04-12 08:27:48,726 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,728 - root - INFO - for droplet 6 sample before b'\x86\x15\x06\x00'  sample after [134  21   6   0]
+2025-04-12 08:27:48,730 - root - INFO - generating indexes for index:6  degree: 21 i = 3
+2025-04-12 08:27:48,733 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,735 - root - INFO - for droplet 7 sample before b'\xd8\x02\x07\x00'  sample after [216   2   7   0]
+2025-04-12 08:27:48,737 - root - INFO - generating indexes for index:7  degree: 2 i = 3
+2025-04-12 08:27:48,739 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,806 - root - INFO - for droplet 8 sample before b'\xba\x02\x08\x00'  sample after [186   2   8   0]
+2025-04-12 08:27:48,809 - root - INFO - generating indexes for index:8  degree: 2 i = 3
+2025-04-12 08:27:48,812 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,819 - root - INFO - for droplet 9 sample before b'\x0c\x02\t\x00'  sample after [12  2  9  0]
+2025-04-12 08:27:48,824 - root - INFO - generating indexes for index:9  degree: 2 i = 3
+2025-04-12 08:27:48,832 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,836 - root - INFO - for droplet 10 sample before b'\x1e\x02\n\x00'  sample after [30  2 10  0]
+2025-04-12 08:27:48,839 - root - INFO - generating indexes for index:10  degree: 2 i = 3
+2025-04-12 08:27:48,843 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,846 - root - INFO - for droplet 11 sample before b']\x02\x0b\x00'  sample after [93  2 11  0]
+2025-04-12 08:27:48,849 - root - INFO - generating indexes for index:11  degree: 2 i = 3
+2025-04-12 08:27:48,853 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,856 - root - INFO - for droplet 12 sample before b'T\x03\x0c\x00'  sample after [84  3 12  0]
+2025-04-12 08:27:48,859 - root - INFO - generating indexes for index:12  degree: 3 i = 3
+2025-04-12 08:27:48,863 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,867 - root - INFO - for droplet 13 sample before b'O\x02\r\x00'  sample after [79  2 13  0]
+2025-04-12 08:27:48,870 - root - INFO - generating indexes for index:13  degree: 2 i = 3
+2025-04-12 08:27:48,874 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,877 - root - INFO - for droplet 14 sample before b'%\x03\x0e\x00'  sample after [37  3 14  0]
+2025-04-12 08:27:48,881 - root - INFO - generating indexes for index:14  degree: 3 i = 3
+2025-04-12 08:27:48,884 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,888 - root - INFO - for droplet 15 sample before b'\xae\x02\x0f\x00'  sample after [174   2  15   0]
+2025-04-12 08:27:48,891 - root - INFO - generating indexes for index:15  degree: 2 i = 3
+2025-04-12 08:27:48,895 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,898 - root - INFO - for droplet 16 sample before b'R\x04\x10\x00'  sample after [82  4 16  0]
+2025-04-12 08:27:48,901 - root - INFO - generating indexes for index:16  degree: 4 i = 3
+2025-04-12 08:27:48,905 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,909 - root - INFO - for droplet 17 sample before b'\x0b\x03\x11\x00'  sample after [11  3 17  0]
+2025-04-12 08:27:48,913 - root - INFO - generating indexes for index:17  degree: 3 i = 3
+2025-04-12 08:27:48,916 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,920 - root - INFO - for droplet 18 sample before b'\xb5+\x12\x00'  sample after [181  43  18   0]
+2025-04-12 08:27:48,923 - root - INFO - generating indexes for index:18  degree: 43 i = 3
+2025-04-12 08:27:48,928 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,931 - root - INFO - for droplet 19 sample before b'\x02\x05\x13\x00'  sample after [ 2  5 19  0]
+2025-04-12 08:27:48,935 - root - INFO - generating indexes for index:19  degree: 5 i = 3
+2025-04-12 08:27:48,939 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,942 - root - INFO - for droplet 20 sample before b'\xfc\t\x14\x00'  sample after [252   9  20   0]
+2025-04-12 08:27:48,945 - root - INFO - generating indexes for index:20  degree: 9 i = 3
+2025-04-12 08:27:48,949 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,953 - root - INFO - for droplet 21 sample before b'\xe6\x06\x15\x00'  sample after [230   6  21   0]
+2025-04-12 08:27:48,956 - root - INFO - generating indexes for index:21  degree: 6 i = 3
+2025-04-12 08:27:48,960 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,963 - root - INFO - for droplet 22 sample before b'\x05\x02\x16\x00'  sample after [ 5  2 22  0]
+2025-04-12 08:27:48,967 - root - INFO - generating indexes for index:22  degree: 2 i = 3
+2025-04-12 08:27:48,971 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,975 - root - INFO - for droplet 23 sample before b"'\x02\x17\x00"  sample after [39  2 23  0]
+2025-04-12 08:27:48,978 - root - INFO - generating indexes for index:23  degree: 2 i = 3
+2025-04-12 08:27:48,982 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,985 - root - INFO - for droplet 24 sample before b'\x1e@\x18\x00'  sample after [30 64 24  0]
+2025-04-12 08:27:48,989 - root - INFO - generating indexes for index:24  degree: 64 i = 3
+2025-04-12 08:27:48,992 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:48,995 - root - INFO - for droplet 25 sample before b'E\x02\x19\x00'  sample after [69  2 25  0]
+2025-04-12 08:27:48,999 - root - INFO - generating indexes for index:25  degree: 2 i = 3
+2025-04-12 08:27:49,002 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,006 - root - INFO - for droplet 26 sample before b'b\x02\x1a\x00'  sample after [98  2 26  0]
+2025-04-12 08:27:49,009 - root - INFO - generating indexes for index:26  degree: 2 i = 3
+2025-04-12 08:27:49,013 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,016 - root - INFO - for droplet 27 sample before b'\xcb\x03\x1b\x00'  sample after [203   3  27   0]
+2025-04-12 08:27:49,020 - root - INFO - generating indexes for index:27  degree: 3 i = 3
+2025-04-12 08:27:49,023 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,028 - root - INFO - for droplet 28 sample before b'h\x05\x1c\x00'  sample after [104   5  28   0]
+2025-04-12 08:27:49,032 - root - INFO - generating indexes for index:28  degree: 5 i = 3
+2025-04-12 08:27:49,035 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,039 - root - INFO - for droplet 29 sample before b'i\x02\x1d\x00'  sample after [105   2  29   0]
+2025-04-12 08:27:49,043 - root - INFO - generating indexes for index:29  degree: 2 i = 3
+2025-04-12 08:27:49,047 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,050 - root - INFO - for droplet 30 sample before b'\xa9\x02\x1e\x00'  sample after [169   2  30   0]
+2025-04-12 08:27:49,055 - root - INFO - generating indexes for index:30  degree: 2 i = 3
+2025-04-12 08:27:49,058 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,062 - root - INFO - for droplet 31 sample before b'=/\x1f\x00'  sample after [61 47 31  0]
+2025-04-12 08:27:49,065 - root - INFO - generating indexes for index:31  degree: 47 i = 3
+2025-04-12 08:27:49,068 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,071 - root - INFO - for droplet 32 sample before b'\x97\x08 \x00'  sample after [151   8  32   0]
+2025-04-12 08:27:49,074 - root - INFO - generating indexes for index:32  degree: 8 i = 3
+2025-04-12 08:27:49,078 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,081 - root - INFO - for droplet 33 sample before b'n\x02!\x00'  sample after [110   2  33   0]
+2025-04-12 08:27:49,084 - root - INFO - generating indexes for index:33  degree: 2 i = 3
+2025-04-12 08:27:49,087 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,090 - root - INFO - for droplet 34 sample before b'\x0b\x02"\x00'  sample after [11  2 34  0]
+2025-04-12 08:27:49,094 - root - INFO - generating indexes for index:34  degree: 2 i = 3
+2025-04-12 08:27:49,098 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,101 - root - INFO - for droplet 35 sample before b'@\x03#\x00'  sample after [64  3 35  0]
+2025-04-12 08:27:49,104 - root - INFO - generating indexes for index:35  degree: 3 i = 3
+2025-04-12 08:27:49,107 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,110 - root - INFO - for droplet 36 sample before b'\xc9\x04$\x00'  sample after [201   4  36   0]
+2025-04-12 08:27:49,113 - root - INFO - generating indexes for index:36  degree: 4 i = 3
+2025-04-12 08:27:49,117 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,120 - root - INFO - for droplet 37 sample before b'\xca\x02%\x00'  sample after [202   2  37   0]
+2025-04-12 08:27:49,123 - root - INFO - generating indexes for index:37  degree: 2 i = 3
+2025-04-12 08:27:49,126 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,129 - root - INFO - for droplet 38 sample before b'$,&\x00'  sample after [36 44 38  0]
+2025-04-12 08:27:49,133 - root - INFO - generating indexes for index:38  degree: 44 i = 3
+2025-04-12 08:27:49,136 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,139 - root - INFO - for droplet 39 sample before b"\xca7'\x00"  sample after [202  55  39   0]
+2025-04-12 08:27:49,142 - root - INFO - generating indexes for index:39  degree: 55 i = 3
+2025-04-12 08:27:49,145 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,148 - root - INFO - for droplet 40 sample before b'\x07\x03(\x00'  sample after [ 7  3 40  0]
+2025-04-12 08:27:49,151 - root - INFO - generating indexes for index:40  degree: 3 i = 3
+2025-04-12 08:27:49,154 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,157 - root - INFO - for droplet 41 sample before b'\x0b\x02)\x00'  sample after [11  2 41  0]
+2025-04-12 08:27:49,160 - root - INFO - generating indexes for index:41  degree: 2 i = 3
+2025-04-12 08:27:49,163 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,166 - root - INFO - for droplet 42 sample before b'\xf5\x05*\x00'  sample after [245   5  42   0]
+2025-04-12 08:27:49,169 - root - INFO - generating indexes for index:42  degree: 5 i = 3
+2025-04-12 08:27:49,173 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,176 - root - INFO - for droplet 43 sample before b's\x03+\x00'  sample after [115   3  43   0]
+2025-04-12 08:27:49,180 - root - INFO - generating indexes for index:43  degree: 3 i = 3
+2025-04-12 08:27:49,183 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,186 - root - INFO - for droplet 44 sample before b'l\x04,\x00'  sample after [108   4  44   0]
+2025-04-12 08:27:49,190 - root - INFO - generating indexes for index:44  degree: 4 i = 3
+2025-04-12 08:27:49,193 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,196 - root - INFO - for droplet 45 sample before b'\x1a\x02-\x00'  sample after [26  2 45  0]
+2025-04-12 08:27:49,199 - root - INFO - generating indexes for index:45  degree: 2 i = 3
+2025-04-12 08:27:49,202 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,205 - root - INFO - for droplet 46 sample before b'\xac\x01.\x00'  sample after [172   1  46   0]
+2025-04-12 08:27:49,208 - root - INFO - generating indexes for index:46  degree: 1 i = 3
+2025-04-12 08:27:49,212 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,215 - root - INFO - for droplet 47 sample before b'L\x03/\x00'  sample after [76  3 47  0]
+2025-04-12 08:27:49,218 - root - INFO - generating indexes for index:47  degree: 3 i = 3
+2025-04-12 08:27:49,221 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,224 - root - INFO - for droplet 48 sample before b'\xc8\x020\x00'  sample after [200   2  48   0]
+2025-04-12 08:27:49,227 - root - INFO - generating indexes for index:48  degree: 2 i = 3
+2025-04-12 08:27:49,230 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,234 - root - INFO - for droplet 49 sample before b',\x021\x00'  sample after [44  2 49  0]
+2025-04-12 08:27:49,237 - root - INFO - generating indexes for index:49  degree: 2 i = 3
+2025-04-12 08:27:49,240 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,243 - root - INFO - for droplet 50 sample before b'\xcb\x042\x00'  sample after [203   4  50   0]
+2025-04-12 08:27:49,246 - root - INFO - generating indexes for index:50  degree: 4 i = 3
+2025-04-12 08:27:49,249 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,252 - root - INFO - for droplet 51 sample before b'\xcc\x023\x00'  sample after [204   2  51   0]
+2025-04-12 08:27:49,255 - root - INFO - generating indexes for index:51  degree: 2 i = 3
+2025-04-12 08:27:49,258 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,262 - root - INFO - for droplet 52 sample before b'!\x074\x00'  sample after [33  7 52  0]
+2025-04-12 08:27:49,265 - root - INFO - generating indexes for index:52  degree: 7 i = 3
+2025-04-12 08:27:49,268 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,271 - root - INFO - for droplet 53 sample before b'B\x0c5\x00'  sample after [66 12 53  0]
+2025-04-12 08:27:49,274 - root - INFO - generating indexes for index:53  degree: 12 i = 3
+2025-04-12 08:27:49,278 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,281 - root - INFO - for droplet 54 sample before b'U\x036\x00'  sample after [85  3 54  0]
+2025-04-12 08:27:49,284 - root - INFO - generating indexes for index:54  degree: 3 i = 3
+2025-04-12 08:27:49,287 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,290 - root - INFO - for droplet 55 sample before b'\x17\x027\x00'  sample after [23  2 55  0]
+2025-04-12 08:27:49,293 - root - INFO - generating indexes for index:55  degree: 2 i = 3
+2025-04-12 08:27:49,296 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,299 - root - INFO - for droplet 56 sample before b'\xfb\x038\x00'  sample after [251   3  56   0]
+2025-04-12 08:27:49,302 - root - INFO - generating indexes for index:56  degree: 3 i = 3
+2025-04-12 08:27:49,305 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,309 - root - INFO - for droplet 57 sample before b'\xa0\x029\x00'  sample after [160   2  57   0]
+2025-04-12 08:27:49,312 - root - INFO - generating indexes for index:57  degree: 2 i = 3
+2025-04-12 08:27:49,315 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,318 - root - INFO - for droplet 58 sample before b'\x97\x02:\x00'  sample after [151   2  58   0]
+2025-04-12 08:27:49,321 - root - INFO - generating indexes for index:58  degree: 2 i = 3
+2025-04-12 08:27:49,324 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,327 - root - INFO - for droplet 59 sample before b'3\x02;\x00'  sample after [51  2 59  0]
+2025-04-12 08:27:49,330 - root - INFO - generating indexes for index:59  degree: 2 i = 3
+2025-04-12 08:27:49,333 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,336 - root - INFO - for droplet 60 sample before b'\x08,<\x00'  sample after [ 8 44 60  0]
+2025-04-12 08:27:49,339 - root - INFO - generating indexes for index:60  degree: 44 i = 3
+2025-04-12 08:27:49,342 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,345 - root - INFO - for droplet 61 sample before b'\x18,=\x00'  sample after [24 44 61  0]
+2025-04-12 08:27:49,348 - root - INFO - generating indexes for index:61  degree: 44 i = 3
+2025-04-12 08:27:49,352 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,355 - root - INFO - for droplet 62 sample before b'l\x02>\x00'  sample after [108   2  62   0]
+2025-04-12 08:27:49,358 - root - INFO - generating indexes for index:62  degree: 2 i = 3
+2025-04-12 08:27:49,361 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,364 - root - INFO - for droplet 63 sample before b'\x93\x06?\x00'  sample after [147   6  63   0]
+2025-04-12 08:27:49,367 - root - INFO - generating indexes for index:63  degree: 6 i = 3
+2025-04-12 08:27:49,370 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,373 - root - INFO - for droplet 64 sample before b'\xd4\x01@\x00'  sample after [212   1  64   0]
+2025-04-12 08:27:49,376 - root - INFO - generating indexes for index:64  degree: 1 i = 3
+2025-04-12 08:27:49,379 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,383 - root - INFO - for droplet 65 sample before b'x\x02A\x00'  sample after [120   2  65   0]
+2025-04-12 08:27:49,386 - root - INFO - generating indexes for index:65  degree: 2 i = 3
+2025-04-12 08:27:49,389 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,393 - root - INFO - for droplet 66 sample before b'\xfb\x02B\x00'  sample after [251   2  66   0]
+2025-04-12 08:27:49,396 - root - INFO - generating indexes for index:66  degree: 2 i = 3
+2025-04-12 08:27:49,399 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,402 - root - INFO - for droplet 67 sample before b'\x80KC\x00'  sample after [128  75  67   0]
+2025-04-12 08:27:49,405 - root - INFO - generating indexes for index:67  degree: 75 i = 3
+2025-04-12 08:27:49,408 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,411 - root - INFO - for droplet 68 sample before b'\x07\x06D\x00'  sample after [ 7  6 68  0]
+2025-04-12 08:27:49,415 - root - INFO - generating indexes for index:68  degree: 6 i = 3
+2025-04-12 08:27:49,418 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,421 - root - INFO - for droplet 69 sample before b'A\x02E\x00'  sample after [65  2 69  0]
+2025-04-12 08:27:49,424 - root - INFO - generating indexes for index:69  degree: 2 i = 3
+2025-04-12 08:27:49,427 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,430 - root - INFO - for droplet 70 sample before b'\xdd\x02F\x00'  sample after [221   2  70   0]
+2025-04-12 08:27:49,433 - root - INFO - generating indexes for index:70  degree: 2 i = 3
+2025-04-12 08:27:49,436 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,439 - root - INFO - for droplet 71 sample before b'\xbf\x02G\x00'  sample after [191   2  71   0]
+2025-04-12 08:27:49,442 - root - INFO - generating indexes for index:71  degree: 2 i = 3
+2025-04-12 08:27:49,445 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,448 - root - INFO - for droplet 72 sample before b'\xcd\x02H\x00'  sample after [205   2  72   0]
+2025-04-12 08:27:49,451 - root - INFO - generating indexes for index:72  degree: 2 i = 3
+2025-04-12 08:27:49,454 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,457 - root - INFO - for droplet 73 sample before b'\x10,I\x00'  sample after [16 44 73  0]
+2025-04-12 08:27:49,460 - root - INFO - generating indexes for index:73  degree: 44 i = 3
+2025-04-12 08:27:49,463 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,466 - root - INFO - for droplet 74 sample before b'),J\x00'  sample after [41 44 74  0]
+2025-04-12 08:27:49,468 - root - INFO - generating indexes for index:74  degree: 44 i = 3
+2025-04-12 08:27:49,471 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,475 - root - INFO - for droplet 75 sample before b'\x9c\x03K\x00'  sample after [156   3  75   0]
+2025-04-12 08:27:49,478 - root - INFO - generating indexes for index:75  degree: 3 i = 3
+2025-04-12 08:27:49,481 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,484 - root - INFO - for droplet 76 sample before b'\xa5\x01L\x00'  sample after [165   1  76   0]
+2025-04-12 08:27:49,487 - root - INFO - generating indexes for index:76  degree: 1 i = 3
+2025-04-12 08:27:49,490 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,493 - root - INFO - for droplet 77 sample before b'm\x16M\x00'  sample after [109  22  77   0]
+2025-04-12 08:27:49,496 - root - INFO - generating indexes for index:77  degree: 22 i = 3
+2025-04-12 08:27:49,499 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,502 - root - INFO - for droplet 78 sample before b'\x83\x02N\x00'  sample after [131   2  78   0]
+2025-04-12 08:27:49,505 - root - INFO - generating indexes for index:78  degree: 2 i = 3
+2025-04-12 08:27:49,508 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,512 - root - INFO - for droplet 79 sample before b'\xb1\x02O\x00'  sample after [177   2  79   0]
+2025-04-12 08:27:49,515 - root - INFO - generating indexes for index:79  degree: 2 i = 3
+2025-04-12 08:27:49,518 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,521 - root - INFO - for droplet 80 sample before b'\x0b\x02P\x00'  sample after [11  2 80  0]
+2025-04-12 08:27:49,524 - root - INFO - generating indexes for index:80  degree: 2 i = 3
+2025-04-12 08:27:49,527 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,531 - root - INFO - for droplet 81 sample before b'\xe4\x02Q\x00'  sample after [228   2  81   0]
+2025-04-12 08:27:49,534 - root - INFO - generating indexes for index:81  degree: 2 i = 3
+2025-04-12 08:27:49,537 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,540 - root - INFO - for droplet 82 sample before b'm\x02R\x00'  sample after [109   2  82   0]
+2025-04-12 08:27:49,543 - root - INFO - generating indexes for index:82  degree: 2 i = 3
+2025-04-12 08:27:49,546 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,549 - root - INFO - for droplet 83 sample before b'\xf7\nS\x00'  sample after [247  10  83   0]
+2025-04-12 08:27:49,552 - root - INFO - generating indexes for index:83  degree: 10 i = 3
+2025-04-12 08:27:49,555 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,558 - root - INFO - for droplet 84 sample before b'2\x02T\x00'  sample after [50  2 84  0]
+2025-04-12 08:27:49,561 - root - INFO - generating indexes for index:84  degree: 2 i = 3
+2025-04-12 08:27:49,564 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,567 - root - INFO - for droplet 85 sample before b'\xaf\x05U\x00'  sample after [175   5  85   0]
+2025-04-12 08:27:49,570 - root - INFO - generating indexes for index:85  degree: 5 i = 3
+2025-04-12 08:27:49,574 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,577 - root - INFO - for droplet 86 sample before b'\xd0\x02V\x00'  sample after [208   2  86   0]
+2025-04-12 08:27:49,580 - root - INFO - generating indexes for index:86  degree: 2 i = 3
+2025-04-12 08:27:49,583 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,586 - root - INFO - for droplet 87 sample before b'B\x02W\x00'  sample after [66  2 87  0]
+2025-04-12 08:27:49,589 - root - INFO - generating indexes for index:87  degree: 2 i = 3
+2025-04-12 08:27:49,592 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,595 - root - INFO - for droplet 88 sample before b'Z\x04X\x00'  sample after [90  4 88  0]
+2025-04-12 08:27:49,598 - root - INFO - generating indexes for index:88  degree: 4 i = 3
+2025-04-12 08:27:49,601 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,604 - root - INFO - for droplet 89 sample before b'\xdb\x19Y\x00'  sample after [219  25  89   0]
+2025-04-12 08:27:49,607 - root - INFO - generating indexes for index:89  degree: 25 i = 3
+2025-04-12 08:27:49,610 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,613 - root - INFO - for droplet 90 sample before b'\xca\x13Z\x00'  sample after [202  19  90   0]
+2025-04-12 08:27:49,616 - root - INFO - generating indexes for index:90  degree: 19 i = 3
+2025-04-12 08:27:49,619 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,622 - root - INFO - for droplet 91 sample before b'A\x02[\x00'  sample after [65  2 91  0]
+2025-04-12 08:27:49,625 - root - INFO - generating indexes for index:91  degree: 2 i = 3
+2025-04-12 08:27:49,628 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,631 - root - INFO - for droplet 92 sample before b'\xd2\x03\\\x00'  sample after [210   3  92   0]
+2025-04-12 08:27:49,634 - root - INFO - generating indexes for index:92  degree: 3 i = 3
+2025-04-12 08:27:49,637 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,640 - root - INFO - for droplet 93 sample before b'\x95 ]\x00'  sample after [149  32  93   0]
+2025-04-12 08:27:49,643 - root - INFO - generating indexes for index:93  degree: 32 i = 3
+2025-04-12 08:27:49,646 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,649 - root - INFO - for droplet 94 sample before b'\x04\x02^\x00'  sample after [ 4  2 94  0]
+2025-04-12 08:27:49,652 - root - INFO - generating indexes for index:94  degree: 2 i = 3
+2025-04-12 08:27:49,655 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,658 - root - INFO - for droplet 95 sample before b')\x03_\x00'  sample after [41  3 95  0]
+2025-04-12 08:27:49,661 - root - INFO - generating indexes for index:95  degree: 3 i = 3
+2025-04-12 08:27:49,664 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,667 - root - INFO - for droplet 96 sample before b'\xbd\r`\x00'  sample after [189  13  96   0]
+2025-04-12 08:27:49,670 - root - INFO - generating indexes for index:96  degree: 13 i = 3
+2025-04-12 08:27:49,673 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,677 - root - INFO - for droplet 97 sample before b'\xd7\x07a\x00'  sample after [215   7  97   0]
+2025-04-12 08:27:49,680 - root - INFO - generating indexes for index:97  degree: 7 i = 3
+2025-04-12 08:27:49,683 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,686 - root - INFO - for droplet 98 sample before b'\xf6\x02b\x00'  sample after [246   2  98   0]
+2025-04-12 08:27:49,689 - root - INFO - generating indexes for index:98  degree: 2 i = 3
+2025-04-12 08:27:49,692 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,695 - root - INFO - for droplet 99 sample before b'G\x02c\x00'  sample after [71  2 99  0]
+2025-04-12 08:27:49,698 - root - INFO - generating indexes for index:99  degree: 2 i = 3
+2025-04-12 08:27:49,701 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,704 - root - INFO - for droplet 100 sample before b'\xaf\x02d\x00'  sample after [175   2 100   0]
+2025-04-12 08:27:49,707 - root - INFO - generating indexes for index:100  degree: 2 i = 3
+2025-04-12 08:27:49,710 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,713 - root - INFO - for droplet 101 sample before b'\xdf\x02e\x00'  sample after [223   2 101   0]
+2025-04-12 08:27:49,716 - root - INFO - generating indexes for index:101  degree: 2 i = 3
+2025-04-12 08:27:49,719 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,723 - root - INFO - for droplet 102 sample before b'a\x02f\x00'  sample after [ 97   2 102   0]
+2025-04-12 08:27:49,726 - root - INFO - generating indexes for index:102  degree: 2 i = 3
+2025-04-12 08:27:49,729 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,732 - root - INFO - for droplet 103 sample before b'\xd0\x15g\x00'  sample after [208  21 103   0]
+2025-04-12 08:27:49,735 - root - INFO - generating indexes for index:103  degree: 21 i = 3
+2025-04-12 08:27:49,738 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,741 - root - INFO - for droplet 104 sample before b'\xd7\x02h\x00'  sample after [215   2 104   0]
+2025-04-12 08:27:49,744 - root - INFO - generating indexes for index:104  degree: 2 i = 3
+2025-04-12 08:27:49,747 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,751 - root - INFO - for droplet 105 sample before b'&\x04i\x00'  sample after [ 38   4 105   0]
+2025-04-12 08:27:49,754 - root - INFO - generating indexes for index:105  degree: 4 i = 3
+2025-04-12 08:27:49,757 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,760 - root - INFO - for droplet 106 sample before b'\xb5\x02j\x00'  sample after [181   2 106   0]
+2025-04-12 08:27:49,763 - root - INFO - generating indexes for index:106  degree: 2 i = 3
+2025-04-12 08:27:49,766 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,769 - root - INFO - for droplet 107 sample before b'i\x02k\x00'  sample after [105   2 107   0]
+2025-04-12 08:27:49,772 - root - INFO - generating indexes for index:107  degree: 2 i = 3
+2025-04-12 08:27:49,775 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,779 - root - INFO - for droplet 108 sample before b'\xd8\x02l\x00'  sample after [216   2 108   0]
+2025-04-12 08:27:49,781 - root - INFO - generating indexes for index:108  degree: 2 i = 3
+2025-04-12 08:27:49,785 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,788 - root - INFO - for droplet 109 sample before b'\xc0\x04m\x00'  sample after [192   4 109   0]
+2025-04-12 08:27:49,791 - root - INFO - generating indexes for index:109  degree: 4 i = 3
+2025-04-12 08:27:49,794 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,798 - root - INFO - for droplet 110 sample before b'X\x10n\x00'  sample after [ 88  16 110   0]
+2025-04-12 08:27:49,801 - root - INFO - generating indexes for index:110  degree: 16 i = 3
+2025-04-12 08:27:49,804 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,808 - root - INFO - for droplet 111 sample before b'K\x07o\x00'  sample after [ 75   7 111   0]
+2025-04-12 08:27:49,811 - root - INFO - generating indexes for index:111  degree: 7 i = 3
+2025-04-12 08:27:49,814 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,817 - root - INFO - for droplet 112 sample before b'\xc6\x07p\x00'  sample after [198   7 112   0]
+2025-04-12 08:27:49,820 - root - INFO - generating indexes for index:112  degree: 7 i = 3
+2025-04-12 08:27:49,823 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,827 - root - INFO - for droplet 113 sample before b'M,q\x00'  sample after [ 77  44 113   0]
+2025-04-12 08:27:49,830 - root - INFO - generating indexes for index:113  degree: 44 i = 3
+2025-04-12 08:27:49,834 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,837 - root - INFO - for droplet 114 sample before b'}\x02r\x00'  sample after [125   2 114   0]
+2025-04-12 08:27:49,840 - root - INFO - generating indexes for index:114  degree: 2 i = 3
+2025-04-12 08:27:49,843 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,846 - root - INFO - for droplet 115 sample before b'\xcb\x02s\x00'  sample after [203   2 115   0]
+2025-04-12 08:27:49,849 - root - INFO - generating indexes for index:115  degree: 2 i = 3
+2025-04-12 08:27:49,852 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,856 - root - INFO - for droplet 116 sample before b'V\x02t\x00'  sample after [ 86   2 116   0]
+2025-04-12 08:27:49,859 - root - INFO - generating indexes for index:116  degree: 2 i = 3
+2025-04-12 08:27:49,862 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,865 - root - INFO - for droplet 117 sample before b'\x94\x18u\x00'  sample after [148  24 117   0]
+2025-04-12 08:27:49,868 - root - INFO - generating indexes for index:117  degree: 24 i = 3
+2025-04-12 08:27:49,872 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,875 - root - INFO - for droplet 118 sample before b'\xab\x02v\x00'  sample after [171   2 118   0]
+2025-04-12 08:27:49,878 - root - INFO - generating indexes for index:118  degree: 2 i = 3
+2025-04-12 08:27:49,881 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,884 - root - INFO - for droplet 119 sample before b')\x02w\x00'  sample after [ 41   2 119   0]
+2025-04-12 08:27:49,886 - root - INFO - generating indexes for index:119  degree: 2 i = 3
+2025-04-12 08:27:49,890 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,893 - root - INFO - for droplet 120 sample before b'-\x02x\x00'  sample after [ 45   2 120   0]
+2025-04-12 08:27:49,896 - root - INFO - generating indexes for index:120  degree: 2 i = 3
+2025-04-12 08:27:49,899 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,902 - root - INFO - for droplet 121 sample before b'\x1f\x02y\x00'  sample after [ 31   2 121   0]
+2025-04-12 08:27:49,905 - root - INFO - generating indexes for index:121  degree: 2 i = 3
+2025-04-12 08:27:49,908 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,911 - root - INFO - for droplet 122 sample before b'\xbf,z\x00'  sample after [191  44 122   0]
+2025-04-12 08:27:49,914 - root - INFO - generating indexes for index:122  degree: 44 i = 3
+2025-04-12 08:27:49,917 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,920 - root - INFO - for droplet 123 sample before b'N\x02{\x00'  sample after [ 78   2 123   0]
+2025-04-12 08:27:49,923 - root - INFO - generating indexes for index:123  degree: 2 i = 3
+2025-04-12 08:27:49,926 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,929 - root - INFO - for droplet 124 sample before b'\xd6\x02|\x00'  sample after [214   2 124   0]
+2025-04-12 08:27:49,932 - root - INFO - generating indexes for index:124  degree: 2 i = 3
+2025-04-12 08:27:49,936 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,939 - root - INFO - for droplet 125 sample before b'9\x11}\x00'  sample after [ 57  17 125   0]
+2025-04-12 08:27:49,942 - root - INFO - generating indexes for index:125  degree: 17 i = 3
+2025-04-12 08:27:49,945 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,948 - root - INFO - for droplet 126 sample before b'E\x03~\x00'  sample after [ 69   3 126   0]
+2025-04-12 08:27:49,951 - root - INFO - generating indexes for index:126  degree: 3 i = 3
+2025-04-12 08:27:49,954 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,957 - root - INFO - for droplet 127 sample before b'\x17\x02\x7f\x00'  sample after [ 23   2 127   0]
+2025-04-12 08:27:49,960 - root - INFO - generating indexes for index:127  degree: 2 i = 3
+2025-04-12 08:27:49,963 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,967 - root - INFO - for droplet 128 sample before b'm,\x80\x00'  sample after [109  44 128   0]
+2025-04-12 08:27:49,970 - root - INFO - generating indexes for index:128  degree: 44 i = 3
+2025-04-12 08:27:49,973 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,976 - root - INFO - for droplet 129 sample before b'\x86\x02\x81\x00'  sample after [134   2 129   0]
+2025-04-12 08:27:49,979 - root - INFO - generating indexes for index:129  degree: 2 i = 3
+2025-04-12 08:27:49,982 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,986 - root - INFO - for droplet 130 sample before b'\x88\x02\x82\x00'  sample after [136   2 130   0]
+2025-04-12 08:27:49,989 - root - INFO - generating indexes for index:130  degree: 2 i = 3
+2025-04-12 08:27:49,992 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:49,996 - root - INFO - for droplet 131 sample before b'\xc3\x02\x83\x00'  sample after [195   2 131   0]
+2025-04-12 08:27:49,999 - root - INFO - generating indexes for index:131  degree: 2 i = 3
+2025-04-12 08:27:50,002 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,006 - root - INFO - for droplet 132 sample before b'\xd2\x02\x84\x00'  sample after [210   2 132   0]
+2025-04-12 08:27:50,009 - root - INFO - generating indexes for index:132  degree: 2 i = 3
+2025-04-12 08:27:50,012 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,015 - root - INFO - for droplet 133 sample before b'i\x0c\x85\x00'  sample after [105  12 133   0]
+2025-04-12 08:27:50,018 - root - INFO - generating indexes for index:133  degree: 12 i = 3
+2025-04-12 08:27:50,021 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,025 - root - INFO - for droplet 134 sample before b'\xc0\x02\x86\x00'  sample after [192   2 134   0]
+2025-04-12 08:27:50,028 - root - INFO - generating indexes for index:134  degree: 2 i = 3
+2025-04-12 08:27:50,031 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,034 - root - INFO - for droplet 135 sample before b'3\x02\x87\x00'  sample after [ 51   2 135   0]
+2025-04-12 08:27:50,038 - root - INFO - generating indexes for index:135  degree: 2 i = 3
+2025-04-12 08:27:50,041 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,044 - root - INFO - for droplet 136 sample before b'\xdb\x01\x88\x00'  sample after [219   1 136   0]
+2025-04-12 08:27:50,048 - root - INFO - generating indexes for index:136  degree: 1 i = 3
+2025-04-12 08:27:50,051 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,054 - root - INFO - for droplet 137 sample before b'H\x03\x89\x00'  sample after [ 72   3 137   0]
+2025-04-12 08:27:50,057 - root - INFO - generating indexes for index:137  degree: 3 i = 3
+2025-04-12 08:27:50,061 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,064 - root - INFO - for droplet 138 sample before b'\x8b\x07\x8a\x00'  sample after [139   7 138   0]
+2025-04-12 08:27:50,067 - root - INFO - generating indexes for index:138  degree: 7 i = 3
+2025-04-12 08:27:50,071 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,074 - root - INFO - for droplet 139 sample before b'b,\x8b\x00'  sample after [ 98  44 139   0]
+2025-04-12 08:27:50,078 - root - INFO - generating indexes for index:139  degree: 44 i = 3
+2025-04-12 08:27:50,081 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,084 - root - INFO - for droplet 140 sample before b'i\x03\x8c\x00'  sample after [105   3 140   0]
+2025-04-12 08:27:50,087 - root - INFO - generating indexes for index:140  degree: 3 i = 3
+2025-04-12 08:27:50,090 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,094 - root - INFO - for droplet 141 sample before b'\x1e\x02\x8d\x00'  sample after [ 30   2 141   0]
+2025-04-12 08:27:50,097 - root - INFO - generating indexes for index:141  degree: 2 i = 3
+2025-04-12 08:27:50,100 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,103 - root - INFO - for droplet 142 sample before b't\x05\x8e\x00'  sample after [116   5 142   0]
+2025-04-12 08:27:50,106 - root - INFO - generating indexes for index:142  degree: 5 i = 3
+2025-04-12 08:27:50,109 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,112 - root - INFO - for droplet 143 sample before b"'\x02\x8f\x00"  sample after [ 39   2 143   0]
+2025-04-12 08:27:50,116 - root - INFO - generating indexes for index:143  degree: 2 i = 3
+2025-04-12 08:27:50,119 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,122 - root - INFO - for droplet 144 sample before b'},\x90\x00'  sample after [125  44 144   0]
+2025-04-12 08:27:50,125 - root - INFO - generating indexes for index:144  degree: 44 i = 3
+2025-04-12 08:27:50,128 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,131 - root - INFO - for droplet 145 sample before b'g,\x91\x00'  sample after [103  44 145   0]
+2025-04-12 08:27:50,134 - root - INFO - generating indexes for index:145  degree: 44 i = 3
+2025-04-12 08:27:50,137 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,141 - root - INFO - for droplet 146 sample before b'\x00\x03\x92\x00'  sample after [  0   3 146   0]
+2025-04-12 08:27:50,144 - root - INFO - generating indexes for index:146  degree: 3 i = 3
+2025-04-12 08:27:50,147 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,150 - root - INFO - for droplet 147 sample before b'\xb3\x04\x93\x00'  sample after [179   4 147   0]
+2025-04-12 08:27:50,153 - root - INFO - generating indexes for index:147  degree: 4 i = 3
+2025-04-12 08:27:50,156 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,159 - root - INFO - for droplet 148 sample before b'\x9e\x05\x94\x00'  sample after [158   5 148   0]
+2025-04-12 08:27:50,162 - root - INFO - generating indexes for index:148  degree: 5 i = 3
+2025-04-12 08:27:50,165 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,169 - root - INFO - for droplet 149 sample before b'\xf3\x02\x95\x00'  sample after [243   2 149   0]
+2025-04-12 08:27:50,172 - root - INFO - generating indexes for index:149  degree: 2 i = 3
+2025-04-12 08:27:50,175 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,178 - root - INFO - for droplet 150 sample before b'\xa6\x02\x96\x00'  sample after [166   2 150   0]
+2025-04-12 08:27:50,181 - root - INFO - generating indexes for index:150  degree: 2 i = 3
+2025-04-12 08:27:50,184 - root - INFO - checksum passed for droplet
+2025-04-12 08:27:50,189 - root - INFO - for droplet 151 sample before b'\x0b\x02\x97\x00'  sample after [ 11   2 151   0]
+2025-04-12 08:27:50,191 - root - INFO - generating indexes for index:151  degree: 2 i = 3
+2025-04-12 08:27:50,203 - root - INFO - finished decoding
+2025-04-12 08:27:50,207 - root - INFO - Finished decoding erroneous fountain file
