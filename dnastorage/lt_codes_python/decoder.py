@@ -1,6 +1,7 @@
 from dnastorage.lt_codes_python.core import *
 from reedsolo import RSCodec
 from dnastorage.util.stats import *
+from dnastorage.codec.strand import *
 import logging
 
 logger = logging.getLogger()
@@ -18,15 +19,15 @@ def recover_graph(symbols, blocks_quantity, systematic, rs_size_fountain):
         checksum_pos = 0
         
         data = symbol.data[checksum_len:]
-        
-        if checksum(data) != symbol.data[checksum_pos]:
-            logger.info(f"checksum failed for droplet checksumfromfile: {symbol.data[checksum_pos]} checksum: {checksum(data)} data: {symbol.data}")
+        crc = CRC8()
+        if symbol.data[checksum_pos] != crc._crc(data):
+            logger.info(f"checksum failed for droplet checksumfromfile: {symbol.data[checksum_pos]} checksum: {crc._crc(data)} data: {symbol.data}")
             stats.inc("checksum_fountain_fail", 1)
             symbol.data = None
             continue
 
         else:
-            logger.info(f"checksum passed for droplet")
+            logger.info(f"checksum passed for droplet {i}")
 
         dataBefore = symbol.data[:4]
 
@@ -35,7 +36,6 @@ def recover_graph(symbols, blocks_quantity, systematic, rs_size_fountain):
         dataAfter = symbol.data[:4]
 
         logger.info(f"for droplet {i} sample before {dataBefore}  sample after {dataAfter}")
-
 
         symbol.data = symbol.data[checksum_len:]
 
@@ -48,6 +48,9 @@ def recover_graph(symbols, blocks_quantity, systematic, rs_size_fountain):
             index += int(symbol.data[i + pos_index]) * 256 ** i
 
         symbol.degree = int(symbol.data[pos_degree])
+        if symbol.degree == 0:
+            symbol.data = None
+            continue
         symbol.index = index
         logger.info(f"generating indexes for index:{symbol.index}  degree: {symbol.degree} i = {i}")
         neighbors, deg = generate_indexes(symbol.index, symbol.degree, blocks_quantity, systematic)

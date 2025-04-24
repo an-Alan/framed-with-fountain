@@ -64,7 +64,6 @@ def checksum(chunk):
       checksum_num = np.bitwise_xor(checksum_num, byte)
    return checksum_num
 
-
 def log(process, iteration, total, start_time, packet_size):
     """Log the processing in a gentle way, each seconds"""
     global log_actual_time

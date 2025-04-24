@@ -1,5 +1,6 @@
 from dnastorage.lt_codes_python.core import *
 from dnastorage.lt_codes_python.distributions import *
+from dnastorage.codec.strand import *
 from reedsolo import RSCodec
 import logging
 
@@ -77,8 +78,11 @@ def encode(blocks, drops_quantity, systematic, packet_size, rs_size_fountain):
 
         #rs_obj = RSCodec(rs_size_fountain)
         #drop = np.frombuffer(rs_obj.encode(drop), dtype=NUMPY_TYPE)
-        checksumd = checksum(drop)
-        drop = np.insert(drop, 0, checksumd)
+        # checksumd = checksum(drop)
+        # drop = np.insert(drop, 0, checksumd)
+        crc = CRC8()
+        logger.info(f"droplet {indexbefore} checksum = {crc._crc(drop)}")
+        drop = np.frombuffer(np.insert(drop, 0 ,crc._crc(drop)), dtype=NUMPY_TYPE)
         symbol = Symbol(index=i, degree=deg, data=drop)
         
         if VERBOSE:
